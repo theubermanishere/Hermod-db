@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var mustacheExpress = require('mustache-express');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -7,8 +8,8 @@ app.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
+app.engine('mustache', mustacheExpress());
+app.set('view engine', 'mustache');
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
