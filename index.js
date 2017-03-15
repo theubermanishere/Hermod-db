@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var mustacheExpress = require('mustache-express');
 var pg = require('pg');
-var nodemailer = require('nodemailer');
+// var nodemailer = require('nodemailer');
 
 app.set('port', (process.env.PORT || 5000));
 
