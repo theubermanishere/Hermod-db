@@ -65,7 +65,7 @@ app.get('/deleted', function(req, res) {
     res.send('Your username has been deleted');
 })
 app.post('/registered', function(req, res) {
-    var aa = req.username
+    var aa = req.params.username
     res.send(aa)
     res.send('Your username has been registered. Check your email to complete registeration')
 })
