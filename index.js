@@ -2,6 +2,9 @@ var express = require('express');
 var app = express();
 var mustacheExpress = require('mustache-express');
 var pg = require('pg');
+var bodyParser = require('body-parser')
+var multer = require('multer')
+var upload = multer();
 // var nodemailer = require('nodemailer');
 
 app.set('port', (process.env.PORT || 5000));
@@ -44,6 +47,16 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 //    }
 //    console.log('Message %s sent: %s', info.messageId, info.response);
 //});
+//
+// Parsing
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+//app.post('/profile', upload.array(), function (req, res, next) {
+//  console.log(req.body);
+//  res.json(req.body);
+//});
 
 app.use(express.static(__dirname + '/public'));
 
@@ -64,8 +77,8 @@ app.post('/delete', function(req, res) {
 app.get('/deleted', function(req, res) {
     res.send('Your username has been deleted');
 })
-app.post('/registered', function(req, res) {
-    var aa = req.params.username
+app.post('/registered', upload.array(), function(req, res) {
+    var aa = req.body.username
     res.send(aa)
     res.send('Your username has been registered. Check your email to complete registeration')
 })
