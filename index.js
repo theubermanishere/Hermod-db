@@ -78,9 +78,10 @@ app.get('/deleted', function(req, res) {
     res.send('Your username has been deleted');
 })
 app.post('/registered', upload.array(), function(req, res) {
-    var aa = req.body.username
-    res.send(aa)
-    res.send('Your username has been registered. Check your email to complete registeration')
+    var aa = req.body.username;
+    console.log(req.body);
+    res.send(aa);
+    res.send('Your username has been registered. Check your email to complete registeration');
 })
 
 
