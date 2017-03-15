@@ -42,14 +42,14 @@
   box-sizing: border-box; }
 
 /* For devices larger than 400px */
-@media (min-width: 700px) {
+@media (min-width: 1000px) {
   .container {
     width: 85%;
     padding: 0; }
 }
 
 /* For devices larger than 550px */
-@media (min-width: 750px) {
+@media (min-width: 1150px) {
   .container {
     width: 80%; }
   .column,
