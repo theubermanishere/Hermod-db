@@ -55,6 +55,22 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.post('/delete', function(req, res) {
+
+
+    res.redirect('/deleted');
+})
+
+app.get('/deleted', function(req, res) {
+    res.send('Your username has been deleted');
+})
+app.get('/registered', function(req, res) {
+    res.send('Your username has been registered. Check your email to complete registeration')
+})
+
+
+
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
