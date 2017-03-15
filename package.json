@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "4.13.3",
     "mustache": "^2.3.0",
-    "mustache-express": "^1.2.4"
+    "mustache-express": "^1.2.4",
+    "pg": "6.1.4"
   },
   "repository": {
     "type": "git",
