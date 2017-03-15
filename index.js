@@ -20,30 +20,30 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 });
 
 // create reusable transporter object using the default SMTP transport
-let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'hermoddb@gmail.com',
-        pass: 'arnoldbuddha280'
-    }
-});
-
-// setup email data with unicode symbols
-let mailOptions = {
-    from: '"Hermod" <hermoddb@gmail.com>', // sender address
-    to: '', // list of receivers
-    subject: '', // Subject line
-    text: 'Hello world ?', // plain text body
-    html: '<b>Hello world ?</b>' // html body
-};
-
-// send mail with defined transport object
-transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-        return console.log(error);
-    }
-    console.log('Message %s sent: %s', info.messageId, info.response);
-});
+//let transporter = nodemailer.createTransport({
+//    service: 'gmail',
+//    auth: {
+//        user: 'hermoddb@gmail.com',
+//        pass: 'arnoldbuddha280'
+//    }
+//});
+//
+//// setup email data with unicode symbols
+//let mailOptions = {
+//    from: '"Hermod" <hermoddb@gmail.com>', // sender address
+//    to: '', // list of receivers
+//    subject: '', // Subject line
+//    text: 'Hello world ?', // plain text body
+//    html: '<b>Hello world ?</b>' // html body
+//};
+//
+//// send mail with defined transport object
+//transporter.sendMail(mailOptions, (error, info) => {
+//    if (error) {
+//        return console.log(error);
+//    }
+//    console.log('Message %s sent: %s', info.messageId, info.response);
+//});
 
 app.use(express.static(__dirname + '/public'));
 
