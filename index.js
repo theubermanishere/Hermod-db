@@ -10,17 +10,17 @@ var upload = multer();
 app.set('port', (process.env.PORT || 5000));
 
 // Postgres
-pg.defaults.ssl = true;
-pg.connect(process.env.DATABASE_URL, function(err, client) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-
-  client
-    .query('SELECT table_schema,table_name FROM information_schema.tables;')
-    .on('row', function(row) {
-      console.log(JSON.stringify(row));
-    });
-});
+// pg.defaults.ssl = true;
+// pg.connect(process.env.DATABASE_URL, function(err, client) {
+//   if (err) throw err;
+//   console.log('Connected to postgres! Getting schemas...');
+// 
+//   client
+//     .query('SELECT table_schema,table_name FROM information_schema.tables;')
+//     .on('row', function(row) {
+//       console.log(JSON.stringify(row));
+//     });
+// });
 
 // create reusable transporter object using the default SMTP transport
 //let transporter = nodemailer.createTransport({
@@ -50,7 +50,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 //
 // Parsing
 
-app.use(bodyParser.text()); // for parsing application/json
+app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 //app.post('/profile', upload.array(), function (req, res, next) {
