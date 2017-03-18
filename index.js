@@ -80,7 +80,6 @@ app.get('/deleted', function(req, res) {
 app.post('/registered', function(req, res) {
     var aa = req.body.username;
     console.log(req.body);
-    res.send(aa);
     res.send('Your username has been registered. Check your email to complete registeration');
 })
 
