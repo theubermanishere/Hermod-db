@@ -50,7 +50,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 //
 // Parsing
 
-app.use(bodyParser.json()); // for parsing application/json
+// app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 //app.post('/profile', upload.array(), function (req, res, next) {
